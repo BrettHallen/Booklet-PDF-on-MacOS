@@ -8,6 +8,10 @@ The solution?<br>
 
 Simply install the manufacturer's driver.  Pffft.  Neither Brother nor HP seem to offer macOS 26.2 (or any macOS) drivers.<br>
 
+BUT!  Reinstalling the AirPrint driver for my HP printer DID enable the "Print at Booklet" option in Preview.<br>
+
+![HP Print as Booklet](/Preview_Print_as_booklet.png)
+
 On more current macOS versions there is still the option of using (gulp) Adobe Acrobat Reader but this isn't possible on older versions.<br>
 
 This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.<br>
