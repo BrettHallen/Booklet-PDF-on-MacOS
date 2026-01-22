@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 pdf-booklet.py  -  Create a booklet PDF ready for double-sided printing, 
-                   mainly to solve a Mac OS issue
+                   mainly to solve the missing "Print as Booklet" layout
+                   option in the macOS program Preview.
 
 Usage:
-    python3 pdf-booklet.py input.pdf [output.pdf]
+    python3 pdf-booklet.py input.pdf [output.pdf] [--binding left|right]
 
 Requirements: pip install pymupdf
 
@@ -36,7 +37,7 @@ def make_booklet(input_path, output_path=None, left_binding=True):
     print("\nBooklet Layout Generator (22/Jan/2026)")
     print("--------------------------------------")
     print(f">> Processing {input_path}")
-    print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}")
+    print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}\n")
 
     for i in range(n // 4):
         ##################
@@ -53,7 +54,7 @@ def make_booklet(input_path, output_path=None, left_binding=True):
             # RIGHT binding: outer (high) on RIGHT, inner (low) on LEFT
             p1 = n - 1 - 2 * i      # right side = high number
             p2 = 2 * i              # left  side = low number
-        print(f"   Processing pages {p1+1} & {p2+1}")
+        print(f"   Processing pages {p1+1} & {p2+1} -> new page {2*i+1}")
         left.show_pdf_page(fitz.Rect(0, 0, doc[0].rect.width, doc[0].rect.height), doc, p2)
         right.show_pdf_page(fitz.Rect(doc[0].rect.width, 0, doc[0].rect.width * 2, doc[0].rect.height), doc, p1)
 
@@ -71,13 +72,13 @@ def make_booklet(input_path, output_path=None, left_binding=True):
             # RIGHT binding: outer (high) on RIGHT, inner (low) on LEFT
             p3 = 2 * i + 1
             p4 = n - 2 - 2 * i
-        print(f"   Processing pages {p3+1} & {p4+1}")
+        print(f"   Processing pages {p3+1} & {p4+1} -> new page {2*i+2}")
         left.show_pdf_page(fitz.Rect(0, 0, doc[0].rect.width, doc[0].rect.height), doc, p4)
         right.show_pdf_page(fitz.Rect(doc[0].rect.width, 0, doc[0].rect.width * 2, doc[0].rect.height), doc, p3)
 
     booklet.save(output_path)
-    print(f">> Booklet PDF saved to: {output_path}\n")
-    print("When printing: double sided, on (short edge)\n")
+    print(f"\n>> Booklet PDF saved to: {output_path}\n")
+    print("When printing: double sided on short edge\n")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
