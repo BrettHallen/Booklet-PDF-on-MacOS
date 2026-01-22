@@ -38,7 +38,7 @@ Then simply run this Python script:<br>
 ```
 python3 pdf-booklet.py input.pdf [output.pdf] [--binding left|right]
 ```
-If you don't specify ```output.pdf``` it will append ```_booklet``` to the input file name, i.e. ```input_booklet.pdf```.<br>
+If you don't specify ```output.pdf``` it will append ```-booklet-left``` (or ```-booklet-right```) to the input file name, i.e. ```<input>-booklet-left.pdf```.<br>
 By default it will assume left/Western binding but you can optionally specify right/Japanese binding.<br>
 
 ### Example
