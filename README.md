@@ -4,12 +4,15 @@ Simple Python script to re-organise a PDF into ready-to-print booklet format on 
 ## The Problem
 The Preview program on (perhaps) macOS 10.14 onwards no longer includes a booklet layout option.<br>
 
+This includes at least:
 - Preview 11.0 (999.4) on macOS Catalina 10.15.7
 - Preview 11.0 (1113.3.1) on macOS Tahoe 26.2
 
 On more current macOS versions there is still the option of using (gulp) Adobe Acrobat Reader but this isn't possible on older versions.<br>
 
-Note that I've found that my venerable Brother HL-5340D printer can no longer print double-sided correctly using the "Generic PCL Laser Printer vers. 2.3" on macOS 26.2, and Brother stopped provided macOS drivers some time ago.  Rather than print both sides the same orientation, it keeps flipping the reverse page.<br>
+Note that I've found that my venerable Brother HL-5340D printer can no longer print double-sided correctly using the "Generic PCL Laser Printer vers. 2.3" on macOS 26.2, and Brother stopped providing macOS drivers some time ago.<br>
+
+Rather than print both sides the same orientation, it keeps flipping the reverse page.  I'll need to figure this out.<br>
 
 ## The Solution
 A Python script using the PyMuPDF library to re-organise the pages into a print-ready format with two A5-sized pages per page.<br>
@@ -33,7 +36,7 @@ Then simply run this Python script:<br>
 ```
 python3 pdf-booklet.py input.pdf [output.pdf] [--binding left|right]
 ```
-If you don't specify ```output.pdf``` it will append ```_booklet``` to the input file name.<br>
+If you don't specify ```output.pdf``` it will append ```_booklet``` to the input file name, i.e. ```input_booklet.pdf```.<br>
 By default it will assume left/Western binding but you can optionally specify right/Japanese binding.<br>
 
 ### Example
@@ -82,5 +85,14 @@ Booklet Layout Generator (22/Jan/2026)
 
 When printing: double sided, on (short edge)
 ```
+### Original PDF Layout (one A4 page per sheet)
+Note: Sony (very, very obviously) is a registered trademark, along with Digital Mavica, etc.  These pages are shown here simply as an example.  The original PDF, if you are looking for the MVC-FD95 manual, can be found on the Sony website.<br>
+
+![Original PDF layout](/PDF_Original.png)
+
+### Converted Booklet Layout (two A5 pages per sheet)
+
+![Booklet PDF layout](/PDF_Booklet.png)
+
 
 
