@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """
-pdf-booklet.py  -  Create a booklet PDF ready for double-sided printing, 
-                   mainly to solve the missing "Print as Booklet" layout
-                   option in the macOS program Preview.
+pdf-booklet.py
+Create a booklet PDF ready for double-sided printing, 
+mainly to solve the missing "Print as Booklet" layout
+option in the macOS program Preview.
 
 Usage:
-    python3 pdf-booklet.py input.pdf [output.pdf] [--binding left|right]
+python3 pdf-booklet.py input.pdf [output.pdf] [--binding left|right]
 
-Requirements: pip install pymupdf
+Requirements: 
+pip install pymupdf
 
 Brett Hallen, Jan 2026
 """
@@ -16,12 +18,16 @@ import sys
 import argparse
 import fitz     # PyMuPDF
 
+########################
+# Main worker function #
+########################
 def make_booklet(input_path, output_path=None, left_binding=True):
     if output_path is None:
         suffix = "-booklet-left.pdf" if left_binding else "-booklet-right.pdf"
         output_path = input_path.replace(".pdf", suffix)
 
     doc = fitz.open(input_path)
+    # How many pages?
     n = len(doc)
 
     # Pad with blank pages to make multiple of 4
@@ -31,14 +37,18 @@ def make_booklet(input_path, output_path=None, left_binding=True):
         for _ in range(4 - n % 4):
             doc.insert_pdf(blank)
 
-    n = len(doc)           # now multiple of 4
+    # Total number of pages to process
+    n = len(doc) # now a multiple of 4
+    # How many digits in the page count so we can dynamically format the progress output text
+    page_count_width = len(str(n))  # 68 pages -> 2,  999 pages -> 3, 10000 pages -> 5
     booklet = fitz.open()
 
-    print("\nBooklet Layout Generator (22/Jan/2026)")
+    print("\nBooklet Layout Generator (23/Jan/2026)")
     print("--------------------------------------")
     print(f">> Processing {input_path}")
     print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}\n")
 
+    # Process four pages into two new (double sided) pages each loop
     for i in range(n // 4):
         ##################
         # Front of sheet #
@@ -54,7 +64,7 @@ def make_booklet(input_path, output_path=None, left_binding=True):
             # RIGHT binding: outer (high) on RIGHT, inner (low) on LEFT
             p1 = n - 1 - 2 * i      # right side = high number
             p2 = 2 * i              # left  side = low number
-        print(f"   Processing pages {p1+1} & {p2+1} -> new page {2*i+1}")
+        print(f"   Processing pages {p1+1:>{page_count_width}} & {p2+1:>{page_count_width}} -> new page {2*i+1}")
         left.show_pdf_page(fitz.Rect(0, 0, doc[0].rect.width, doc[0].rect.height), doc, p2)
         right.show_pdf_page(fitz.Rect(doc[0].rect.width, 0, doc[0].rect.width * 2, doc[0].rect.height), doc, p1)
 
@@ -72,16 +82,21 @@ def make_booklet(input_path, output_path=None, left_binding=True):
             # RIGHT binding: outer (high) on RIGHT, inner (low) on LEFT
             p3 = 2 * i + 1
             p4 = n - 2 - 2 * i
-        print(f"   Processing pages {p3+1} & {p4+1} -> new page {2*i+2}")
+        print(f"   Processing pages {p3+1:>{page_count_width}} & {p4+1:>{page_count_width}} -> new page {2*i+2}")
         left.show_pdf_page(fitz.Rect(0, 0, doc[0].rect.width, doc[0].rect.height), doc, p4)
         right.show_pdf_page(fitz.Rect(doc[0].rect.width, 0, doc[0].rect.width * 2, doc[0].rect.height), doc, p3)
 
+    #############
+    # All done! #
+    #############
     booklet.save(output_path)
-    print(f"\n>> Booklet PDF saved to: {output_path}\n")
+    print(f"\n>> Booklet PDF saved to {output_path}\n")
     print("When printing: double sided on short edge\n")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
+        # Not enough command line arguments
+        # Print some help
         print("\n---------------------------------------------------------------")
         print("Reorganise an A4 PDF into A5 booklet format ready for printing.")
         print("This is mainly to solve the missing \"Booklet\" layout option in")
@@ -92,6 +107,7 @@ if __name__ == "__main__":
         print("---------------------------------------------------------------\n")
         sys.exit(1)
 
+    # Otherwise, let's try to parse the command line
     parser = argparse.ArgumentParser(description="Create booklet PDF for double-sided printing")
     parser.add_argument("input", help="Input PDF file")
     parser.add_argument("output", nargs="?", help="Output PDF file (optional)")
@@ -100,8 +116,5 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    make_booklet(
-        args.input,
-        args.output,
-        left_binding = (args.binding == "left")
-    )
+    # Let's do it!
+    make_booklet(args.input, args.output, left_binding = (args.binding == "left"))
