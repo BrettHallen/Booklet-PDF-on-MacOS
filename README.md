@@ -49,43 +49,45 @@ Booklet Layout Generator (22/Jan/2026)
 --------------------------------------
 >> Processing Sony_Digital_Mavica_MVC-FD95_Manual.pdf
 >> Binding mode LEFT (Western)
-   Processing pages 1 & 68
-   Processing pages 67 & 2
-   Processing pages 3 & 66
-   Processing pages 65 & 4
-   Processing pages 5 & 64
-   Processing pages 63 & 6
-   Processing pages 7 & 62
-   Processing pages 61 & 8
-   Processing pages 9 & 60
-   Processing pages 59 & 10
-   Processing pages 11 & 58
-   Processing pages 57 & 12
-   Processing pages 13 & 56
-   Processing pages 55 & 14
-   Processing pages 15 & 54
-   Processing pages 53 & 16
-   Processing pages 17 & 52
-   Processing pages 51 & 18
-   Processing pages 19 & 50
-   Processing pages 49 & 20
-   Processing pages 21 & 48
-   Processing pages 47 & 22
-   Processing pages 23 & 46
-   Processing pages 45 & 24
-   Processing pages 25 & 44
-   Processing pages 43 & 26
-   Processing pages 27 & 42
-   Processing pages 41 & 28
-   Processing pages 29 & 40
-   Processing pages 39 & 30
-   Processing pages 31 & 38
-   Processing pages 37 & 32
-   Processing pages 33 & 36
-   Processing pages 35 & 34
+
+   Processing pages 1 & 68 -> new page 1
+   Processing pages 67 & 2 -> new page 2
+   Processing pages 3 & 66 -> new page 3
+   Processing pages 65 & 4 -> new page 4
+   Processing pages 5 & 64 -> new page 5
+   Processing pages 63 & 6 -> new page 6
+   Processing pages 7 & 62 -> new page 7
+   Processing pages 61 & 8 -> new page 8
+   Processing pages 9 & 60 -> new page 9
+   Processing pages 59 & 10 -> new page 10
+   Processing pages 11 & 58 -> new page 11
+   Processing pages 57 & 12 -> new page 12
+   Processing pages 13 & 56 -> new page 13
+   Processing pages 55 & 14 -> new page 14
+   Processing pages 15 & 54 -> new page 15
+   Processing pages 53 & 16 -> new page 16
+   Processing pages 17 & 52 -> new page 17
+   Processing pages 51 & 18 -> new page 18
+   Processing pages 19 & 50 -> new page 19
+   Processing pages 49 & 20 -> new page 20
+   Processing pages 21 & 48 -> new page 21
+   Processing pages 47 & 22 -> new page 22
+   Processing pages 23 & 46 -> new page 23
+   Processing pages 45 & 24 -> new page 24
+   Processing pages 25 & 44 -> new page 25
+   Processing pages 43 & 26 -> new page 26
+   Processing pages 27 & 42 -> new page 27
+   Processing pages 41 & 28 -> new page 28
+   Processing pages 29 & 40 -> new page 29
+   Processing pages 39 & 30 -> new page 30
+   Processing pages 31 & 38 -> new page 31
+   Processing pages 37 & 32 -> new page 32
+   Processing pages 33 & 36 -> new page 33
+   Processing pages 35 & 34 -> new page 34
+
 >> Booklet PDF saved to: Sony_Digital_Mavica_MVC-FD95_Manual-booklet-left.pdf
 
-When printing: double sided, on (short edge)
+When printing: double sided on short edge
 ```
 ### Original PDF Layout (one A4 page per sheet)
 Note: Sony (very, very obviously) is a registered trademark, along with Digital Mavica, etc.  These pages are shown here simply as an example.  The original PDF, if you are looking for the MVC-FD95 manual, can be found on the Sony website.<br>
