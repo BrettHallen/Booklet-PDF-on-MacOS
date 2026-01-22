@@ -104,5 +104,9 @@ Note: Sony (very, very obviously) is a registered trademark, along with Digital 
 
 ![Booklet PDF layout](/PDF_Booklet.png)
 
+## Yet another solution
+Using an Automator script to perform a similar task - this has the benefit of adding a "Make Booklet PDF" option on the right-click Services menu:<br>
+https://statusq.org/archives/2019/01/11/8893/
 
+![Make Booklet PDF option on Services menu](https://statusq.org/wp-content/uploads/2019/01/Screenshot-2023-10-09-at-16.52.23.png)
 
