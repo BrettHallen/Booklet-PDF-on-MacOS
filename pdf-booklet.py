@@ -43,8 +43,9 @@ def make_booklet(input_path, output_path=None, left_binding=True):
     page_count_width = len(str(n))  # 68 pages -> 2,  999 pages -> 3, 10000 pages -> 5
     booklet = fitz.open()
 
-    print("\nBooklet Layout Generator (23/Jan/2026)")
-    print("--------------------------------------")
+    print("\n+----------------------------------------+")
+    print("| Booklet Layout Generator (23/Jan/2026) |")
+    print("+----------------------------------------+")
     print(f">> Processing {input_path}")
     print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}\n")
 
