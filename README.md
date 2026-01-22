@@ -51,20 +51,20 @@ By default it will assume left/Western binding but you can optionally specify ri
 ```
 % python3 pdf-booklet.py Sony_Digital_Mavica_MVC-FD95_Manual.pdf
 
-Booklet Layout Generator (22/Jan/2026)
+Booklet Layout Generator (23/Jan/2026)
 --------------------------------------
 >> Processing Sony_Digital_Mavica_MVC-FD95_Manual.pdf
 >> Binding mode LEFT (Western)
 
-   Processing pages 1 & 68 -> new page 1
-   Processing pages 67 & 2 -> new page 2
-   Processing pages 3 & 66 -> new page 3
-   Processing pages 65 & 4 -> new page 4
-   Processing pages 5 & 64 -> new page 5
-   Processing pages 63 & 6 -> new page 6
-   Processing pages 7 & 62 -> new page 7
-   Processing pages 61 & 8 -> new page 8
-   Processing pages 9 & 60 -> new page 9
+   Processing pages  1 & 68 -> new page 1
+   Processing pages 67 &  2 -> new page 2
+   Processing pages  3 & 66 -> new page 3
+   Processing pages 65 &  4 -> new page 4
+   Processing pages  5 & 64 -> new page 5
+   Processing pages 63 &  6 -> new page 6
+   Processing pages  7 & 62 -> new page 7
+   Processing pages 61 &  8 -> new page 8
+   Processing pages  9 & 60 -> new page 9
    Processing pages 59 & 10 -> new page 10
    Processing pages 11 & 58 -> new page 11
    Processing pages 57 & 12 -> new page 12
@@ -91,7 +91,7 @@ Booklet Layout Generator (22/Jan/2026)
    Processing pages 33 & 36 -> new page 33
    Processing pages 35 & 34 -> new page 34
 
->> Booklet PDF saved to: Sony_Digital_Mavica_MVC-FD95_Manual-booklet-left.pdf
+>> Booklet PDF saved to Sony_Digital_Mavica_MVC-FD95_Manual-booklet-left.pdf
 
 When printing: double sided on short edge
 ```
