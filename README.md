@@ -2,19 +2,17 @@
 Simple Python script to re-organise a PDF into ready-to-print booklet format on MacOS.
 
 ## The Problem
-The Preview program on (perhaps) macOS 10.14 onwards no longer includes a booklet layout option.<br>
+The Preview program relies on the printer driver (apparently) to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D uses the "Generic PCL Laser Printer version 2.1" and slightly more recent HP Colour LaserJet M452dw uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these activate Preview's booklet layout option (apparently a CUPS issue?).<br>
 
-This includes at least:
-- Preview 11.0 (999.4) on macOS Catalina 10.15.7
-- Preview 11.0 (1113.3.1) on macOS Tahoe 26.2
+The solution?<br>
+
+Simply install the manufacturer's driver.  Pffft.  Neither Brother nor HP seem to offer macOS 26.2 (or any macOS) drivers.<br>
 
 On more current macOS versions there is still the option of using (gulp) Adobe Acrobat Reader but this isn't possible on older versions.<br>
 
-Note that I've found that my venerable Brother HL-5340D printer can no longer print double-sided correctly using the "Generic PCL Laser Printer vers. 2.3" on macOS 26.2, and Brother stopped providing macOS drivers some time ago.<br>
+This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.<br>
 
-Rather than print both sides the same orientation, it keeps flipping the reverse page.  I'll need to figure this out.<br>
-
-## The Solution
+## Another Solution
 A Python script using the PyMuPDF library to re-organise the pages into a print-ready format with two A5-sized pages per page.<br>
 
 Print this resulting PDF file double-sided with short edge binding to get your booklet.<br>
