@@ -8,18 +8,20 @@ The Preview program relies on the printer driver (apparently) to determine wheth
 
 The solution?<br>
 
-Simply install the manufacturer's driver.  Pffft.  Neither Brother nor HP seem to offer macOS 26.2 (or any macOS) drivers.<br>
+Simply install the manufacturer's driver.  Pffft.  Not so easy for older ... yet still perfectly working ... printers.<br>
 
-BUT!  Reinstalling the AirPrint driver for my HP printer DID enable the "Print at Booklet" option in Preview.<br>
+BUT!  Reinstalling the AirPrint driver for my HP printer DID enable the "Print at Booklet" option in Preview.  After some more searching I did manage to find a current (macOS 26) driver for my HP printer which also supported booklet layout, but the Brother printer drivers stopped being updated after macOS 10.15 Catalina so I need to rely on the generic PCL driver.<br>
 
 ![HP Print as Booklet](/Preview_Print_as_booklet.png)
+
+The HP driver I found was "HP Easy Start" vers. 2.16.0.251010 (10/Nov/2025) which installed driver "HP Color LaserJet Pro M452 version 10.4".<br> 
 
 On more current macOS versions there is still the option of using (gulp) Adobe Acrobat Reader but this isn't possible on older versions.<br>
 
 This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.  I'm guessing this is an issue with the printer driver still.<br>
 
 ## Another solution
-This should work for both older macOS version and for printer drivers that don't offer the booklet option.<br>
+This should work for both older Mac OS X and macOS versions (if you can install Python 3 and the required library) and for printer drivers that don't offer the booklet option.<br>
 
 A Python script using the PyMuPDF library to re-organise the pages into a print-ready format with two A5-sized pages per page.<br>
 
