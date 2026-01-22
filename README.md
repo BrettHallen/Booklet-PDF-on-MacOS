@@ -1,6 +1,8 @@
 # Booklet PDF on MacOS
 Simple Python script to re-organise a PDF into ready-to-print booklet format on MacOS.
 
+- [YouTube video](https://youtu.be/mSsKpEZ4v3w)
+
 ## The problem
 The Preview program relies on the printer driver (apparently) to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D (2009) uses the "Generic PCL Laser Printer version 2.3" and slightly more recent HP Colour LaserJet M452dw (2016) uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these activate Preview's booklet layout option (apparently a CUPS issue?).<br>
 
