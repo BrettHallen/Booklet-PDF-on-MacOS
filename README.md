@@ -1,8 +1,8 @@
 # Booklet PDF on MacOS
 Simple Python script to re-organise a PDF into ready-to-print booklet format on MacOS.
 
-## The Problem
-The Preview program relies on the printer driver (apparently) to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D uses the "Generic PCL Laser Printer version 2.1" and slightly more recent HP Colour LaserJet M452dw uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these activate Preview's booklet layout option (apparently a CUPS issue?).<br>
+## The problem
+The Preview program relies on the printer driver (apparently) to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D (2009) uses the "Generic PCL Laser Printer version 2.3" and slightly more recent HP Colour LaserJet M452dw (2016) uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these activate Preview's booklet layout option (apparently a CUPS issue?).<br>
 
 The solution?<br>
 
@@ -14,14 +14,16 @@ BUT!  Reinstalling the AirPrint driver for my HP printer DID enable the "Print a
 
 On more current macOS versions there is still the option of using (gulp) Adobe Acrobat Reader but this isn't possible on older versions.<br>
 
-This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.<br>
+This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.  I'm guessing this is an issue with the printer driver still.<br>
 
-## Another Solution
+## Another solution
+This should work for both older macOS version and for printer drivers that don't offer the booklet option.<br>
+
 A Python script using the PyMuPDF library to re-organise the pages into a print-ready format with two A5-sized pages per page.<br>
 
 Print this resulting PDF file double-sided with short edge binding to get your booklet.<br>
 
-## How To Use
+## How to use
 You will need to have Python 3 and the PyMuPDF library installed:<br>
 
 ```
@@ -89,12 +91,12 @@ Booklet Layout Generator (22/Jan/2026)
 
 When printing: double sided on short edge
 ```
-### Original PDF Layout (one A4 page per sheet)
+### Original PDF layout (one A4 page per sheet)
 Note: Sony (very, very obviously) is a registered trademark, along with Digital Mavica, etc.  These pages are shown here simply as an example.  The original PDF, if you are looking for the MVC-FD95 manual, can be found on the Sony website.<br>
 
 ![Original PDF layout](/PDF_Original.png)
 
-### Converted Booklet Layout (two A5 pages per sheet)
+### Converted booklet layout (two A5 pages per sheet)
 
 ![Booklet PDF layout](/PDF_Booklet.png)
 
