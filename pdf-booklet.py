@@ -26,12 +26,20 @@ def make_booklet(input_path, output_path=None, left_binding=True):
         suffix = "-booklet-left.pdf" if left_binding else "-booklet-right.pdf"
         output_path = input_path.replace(".pdf", suffix)
 
+    print("\n+----------------------------------------+")
+    print("| Booklet Layout Generator (23/Jan/2026) |")
+    print("+----------------------------------------+")
+    print(f">> Processing {input_path}")
+    print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}")
+
     doc = fitz.open(input_path)
     # How many pages?
     n = len(doc)
+    print(f">> Found {n} pages to process")
 
     # Pad with blank pages to make multiple of 4
     if n % 4 != 0:
+        print(f">> Need to pad page count")
         blank = fitz.open()
         blank.new_page(width=doc[0].rect.width, height=doc[0].rect.height)
         for _ in range(4 - n % 4):
@@ -39,15 +47,10 @@ def make_booklet(input_path, output_path=None, left_binding=True):
 
     # Total number of pages to process
     n = len(doc) # now a multiple of 4
+    print(f">> Total {n} pages to process\n")
     # How many digits in the page count so we can dynamically format the progress output text
     page_count_width = len(str(n))  # 68 pages -> 2,  999 pages -> 3, 10000 pages -> 5
     booklet = fitz.open()
-
-    print("\n+----------------------------------------+")
-    print("| Booklet Layout Generator (23/Jan/2026) |")
-    print("+----------------------------------------+")
-    print(f">> Processing {input_path}")
-    print(f">> Binding mode {'LEFT (Western)' if left_binding else 'RIGHT (Japanese)'}\n")
 
     # Process four pages into two new (double sided) pages each loop
     for i in range(n // 4):
