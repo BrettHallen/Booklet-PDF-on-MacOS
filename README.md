@@ -4,10 +4,11 @@ Simple Python script to re-organise a PDF into ready-to-print booklet format on 
 - [YouTube video](https://youtu.be/mSsKpEZ4v3w)
 
 ## The problem
-The Preview program relies on the printer driver (apparently) to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D (2009) uses the "Generic PCL Laser Printer version 2.3" and slightly more recent HP Colour LaserJet M452dw (2016) uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these activate Preview's booklet layout option (apparently a CUPS issue?).<br>
+Many, ahem, "solutions" on YouTube simply tell you use the built-in Preview program and choose the "booklet" option in the Layout section of the print dialogue.<br>
 
-The solution?<br>
+This ignores the root cause which is that Preview relies on the installed printer driver to determine whether it will offer you the Layout \> Booklet option.  For example my venerable Brother HL-5340D (2009) uses the "Generic PCL Laser Printer version 2.3" and slightly more recent HP Colour LaserJet M452dw (2016) uses "HP Color LaserJet M452dw-AirPrint version 4.0".  Neither of these offered the booklet layout option (although I got my HP working, see below).<br>
 
+## Solution #1
 Simply install the manufacturer's driver.  Pffft.  Not so easy for older ... yet still perfectly working ... printers.<br>
 
 BUT!  Reinstalling the AirPrint driver for my HP printer DID enable the "Print at Booklet" option in Preview.  After some more searching I did manage to find a current (macOS 26) driver for my HP printer which also supported booklet layout, but the Brother printer drivers stopped being updated after macOS 10.15 Catalina so I need to rely on the generic PCL driver.<br>
@@ -20,14 +21,14 @@ On more current macOS versions there is still the option of using (gulp) Adobe A
 
 This works okay on my HP but my Brother can't seem to print duplex with the same orientation - the back side is inverted from the front side.  I'm guessing this is an issue with the printer driver still.<br>
 
-## Another solution
+## Solution #2
 This should work for both older Mac OS X and macOS versions (if you can install Python 3 and the required library) and for printer drivers that don't offer the booklet option.<br>
 
 A Python script using the PyMuPDF library to re-organise the pages into a print-ready format with two A5-sized pages per page.<br>
 
 Print this resulting PDF file double-sided with short edge binding to get your booklet.<br>
 
-## How to use
+### How to use
 You will need to have Python 3 and the PyMuPDF library installed:<br>
 
 ```
@@ -104,9 +105,17 @@ Note: Sony (very, very obviously) is a registered trademark, along with Digital 
 
 ![Booklet PDF layout](/PDF_Booklet.png)
 
-## Yet another solution
+## Solution #3
 Using an Automator script to perform a similar task - this has the benefit of adding a "Make Booklet PDF" option on the right-click Quick Action or Services menu:<br>
 https://statusq.org/archives/2019/01/11/8893/
 
 ![Make Booklet PDF option on Services menu](https://statusq.org/wp-content/uploads/2019/01/Screenshot-2023-10-09-at-16.52.23.png)
 
+## Solution #4
+Thanks to Dave on YouTube here is another solution if you have more than one printer and one does offer the booklet layout option (like my HP now does).  This is useful if you want to print in booklet format on the printer that doesn't offer it, i.e. print in B&W on my Brother printer rather than waste toner on my HP printer.<br>
+
+- Open the PDF and select the print option
+- Select the booklet-offering printer, choose Layout - booklet
+- Select "save as PDF"
+- Open the new booklet PDF and choose the other non-booklet-offering printer
+- Print away!
