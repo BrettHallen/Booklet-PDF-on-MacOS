@@ -1,5 +1,5 @@
 # Booklet PDF on MacOS
-Simple Python script to re-organise a PDF into ready-to-print booklet format on MacOS.
+Simple Python script to re-organise a PDF into ready-to-print booklet format on MacOS.  I've also listed a few other alternative solutions.
 
 - [YouTube video](https://youtu.be/mSsKpEZ4v3w)
 
